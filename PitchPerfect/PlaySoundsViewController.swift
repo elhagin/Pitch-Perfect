@@ -26,7 +26,7 @@ class PlaySoundsViewController: UIViewController {
     var stopTimer: Timer!
     
     enum ButtonType: Int { case slow = 0, fast, high, low, echo, reverb }
-    
+	
     @IBAction func playSoundForButton(_ sender: UIButton) {
         switch(ButtonType(rawValue: sender.tag)!) {
         case .slow:
@@ -50,14 +50,17 @@ class PlaySoundsViewController: UIViewController {
         stopAudio()
         configureUI(.notPlaying)
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupAudio()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        configureUI(.notPlaying)
-    }
+	
+	//MARK: - Lifecycle Methods
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		setupAudio()
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		configureUI(.notPlaying)
+	}
+	
 }
